@@ -1,1 +1,14 @@
+<!doctype html><html><head>
+<title>{{ page.title | default: site.title }}</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="https://unpkg.com/@mpan-wework/normalize.min.css@0.0.2/dist/normalize.min.css" />
+<link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+<script src="https://unpkg.com/@mpan-wework/jekyll-theme-manager@0.1.12/dist/index.umd.min.js"></script>
+<script>
+window.JekyllThemeManager.load({{ site.data.themes | jsonify }});
+window.JekyllThemeManager.use(window.localStorage.getItem('theme') || '{{ site.data.themes[0].key }}');
+</script>
+</head><body>
 {{ content }}
+<body></html>
