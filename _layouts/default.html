@@ -6,8 +6,10 @@
 <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
 <script src="https://unpkg.com/@mpan-wework/jekyll-theme-manager@0.1.12/dist/index.umd.min.js"></script>
 <script>
-window.JekyllThemeManager.load({{ site.data.themes | jsonify }});
-window.JekyllThemeManager.use(window.localStorage.getItem('theme') || '{{ site.data.themes[0].key }}');
+const themes = {{ site.data.themes | jsonify }};
+const defaultTheme = themes[new Date().getMinutes() % themes.length];
+window.JekyllThemeManager.load(themes);
+window.JekyllThemeManager.use(window.localStorage.getItem('theme') || defaultTheme.key);
 </script>
 </head><body>
 {{ content }}
