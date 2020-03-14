@@ -1,0 +1,4 @@
+js:
+  - https://unpkg.com/minimal-node-module@0.1.0/index.js
+css:
+  - https://unpkg.com/minimal-node-module@0.1.2/style.css

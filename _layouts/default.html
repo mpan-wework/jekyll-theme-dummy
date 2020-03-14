@@ -4,13 +4,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="https://unpkg.com/@mpan-wework/normalize.min.css@0.0.2/dist/normalize.min.css" />
 <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+{% for css in site.data.browser.css %}
+<link rel="stylesheet" href="{{ css }}" />
+{% endfor %}
 <script src="https://unpkg.com/@mpan-wework/jekyll-theme-manager@0.1.12/dist/index.umd.min.js"></script>
 <script>
-const themes = {{ site.data.themes | jsonify }};
+const themes = {{ site.data.themes | jsonify }} || [];
 const defaultTheme = themes[new Date().getMinutes() % themes.length];
 window.JekyllThemeManager.load(themes);
 window.JekyllThemeManager.use(window.localStorage.getItem('theme') || defaultTheme.key);
 </script>
+{% for js in site.data.browser.js %}
+<script src="{{ js }}"></script>
+{% endfor %}
 </head><body>
 {{ content }}
 <body></html>
